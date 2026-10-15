@@ -1,612 +1,2333 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="藍天咖啡，為手沖咖啡愛好者挑選當季精品咖啡豆，讓每一杯都清澈、明亮、值得細品。">
-  <title>藍天咖啡｜讓風味，慢慢抵達</title>
+  <meta name="description" content="60撋?- ??憌脫??之摰園??賂?閬芣?撟喳?遛?舀?憭祕?具郭?詨扒?嗚?摮??瘜Ｘ什?悅憟嗉蝑?憌脣?憭拙予?銝?瑕???>
+  <title>60撋?撟喳憟質?餅遛?舀?憭憭拙予?賣靘??荔?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Yuji+Boku&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #062742;
-      --blue: #0c5b95;
-      --sky: #75c6e8;
-      --mist: #eaf5f7;
-      --cream: #fbfaf6;
-      --ink: #122534;
-      --muted: #607482;
-      --line: #d7e4e8;
-      --sand: #e5b66b;
-      --shadow: 0 18px 50px rgba(6, 39, 66, .13);
+      --primary-yellow: #FFC72C;
+      --primary-gold: #FFA800;
+      --accent-deep: #0D2B45;
+      --accent-navy: #1B3B6F;
+      --tea-amber: #D97706;
+      --tea-brown: #78350F;
+      --bg-cream: #FFFDF7;
+      --bg-card: #FFFFFF;
+      --bg-warm-light: #FFF9E6;
+      --text-dark: #1F2937;
+      --text-muted: #6B7280;
+      --border-color: #F3E8C4;
+      --shadow-sm: 0 2px 8px rgba(217, 119, 6, 0.08);
+      --shadow-md: 0 8px 24px rgba(13, 43, 69, 0.08);
+      --shadow-lg: 0 16px 36px rgba(13, 43, 69, 0.12);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      background: var(--cream);
-      color: var(--ink);
-      font-family: "Noto Sans TC", sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
+      padding: 0;
     }
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
-    :focus-visible { outline: 3px solid var(--sky); outline-offset: 4px; }
 
-    .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
-    .eyebrow {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      background: none;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Top Announcement Bar */
+    .announcement-bar {
+      background: var(--accent-deep);
+      color: #FFF;
+      font-size: 13px;
+      padding: 8px 16px;
+      text-align: center;
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 12px;
-      margin: 0 0 18px;
-      color: var(--blue);
+      letter-spacing: 0.5px;
+    }
+    .announcement-bar .badge-pill {
+      background: var(--primary-yellow);
+      color: var(--accent-deep);
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .18em;
     }
-    .eyebrow::before { width: 28px; height: 1px; background: currentColor; content: ""; }
-    .section-title {
-      margin: 0;
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 700;
-      letter-spacing: .045em;
-      line-height: 1.28;
-    }
-    .accent { color: var(--blue); }
-    .section-copy { margin: 18px 0 0; color: var(--muted); }
-    .button, .text-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 11px 23px;
-      border: 1px solid transparent;
-      border-radius: 2px;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: .03em;
-      transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s ease;
-    }
-    .button:hover, .text-link:hover { transform: translateY(-2px); }
-    .button-primary { background: var(--sand); color: var(--navy); }
-    .button-primary:hover { background: #f0ca84; }
-    .button-outline { border-color: rgba(255,255,255,.8); color: #fff; }
-    .button-outline:hover { background: #fff; color: var(--navy); }
 
-    .site-header {
-      position: absolute;
-      z-index: 10;
+    /* Navigation */
+    .header {
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
-      border-bottom: 1px solid rgba(255,255,255,.27);
+      z-index: 100;
+      background: rgba(255, 253, 247, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border-color);
+      transition: all 0.3s ease;
     }
-    .navbar {
+    .header.scrolled {
+      box-shadow: var(--shadow-md);
+    }
+    .nav {
+      height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 78px;
-      gap: 24px;
     }
-    .brand { display: inline-flex; align-items: center; gap: 10px; color: #fff; }
-    .brand-mark {
-      display: grid;
-      width: 29px;
-      height: 29px;
-      place-items: center;
-      border: 1px solid var(--sky);
-      border-radius: 50%;
-      color: var(--sky);
-      font-family: "Playfair Display", serif;
-      font-size: 17px;
-      line-height: 1;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 26px;
+      color: var(--accent-deep);
+      letter-spacing: 1px;
     }
-    .brand-copy { display: grid; line-height: 1.1; }
-    .brand-copy strong { font-size: 14px; font-weight: 600; letter-spacing: .08em; }
-    .brand-copy small { margin-top: 4px; color: var(--sky); font-size: 8px; letter-spacing: .15em; }
-    .nav-links { display: flex; align-items: center; gap: 25px; }
-    .nav-links a { position: relative; color: rgba(255,255,255,.92); font-size: 13px; font-weight: 500; white-space: nowrap; }
-    .nav-links a:not(.nav-cta)::after {
-      position: absolute;
-      right: 0;
-      bottom: -7px;
-      width: 0;
-      height: 1px;
-      background: var(--sky);
-      content: "";
-      transition: width .25s ease;
+    .logo-badge {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary-yellow), var(--primary-gold));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(255, 168, 0, 0.35);
+      font-size: 24px;
     }
-    .nav-links a:not(.nav-cta):hover::after { right: auto; left: 0; width: 100%; }
-    .nav-links .nav-cta { padding: 7px 12px; border: 1px solid rgba(255,255,255,.78); }
-    .nav-links .nav-cta:hover { background: #fff; color: var(--navy); }
-    .menu-toggle { display: none; padding: 4px; border: 0; background: transparent; color: #fff; font-size: 24px; line-height: 1; }
+    .logo-text span {
+      color: var(--tea-amber);
+    }
+    .logo-sub {
+      font-size: 11px;
+      display: block;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-top: -4px;
+    }
 
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.2s ease;
+      position: relative;
+    }
+    .nav-link:hover {
+      color: var(--tea-amber);
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--primary-yellow);
+      border-radius: 2px;
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .cart-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-pill);
+      background: var(--bg-warm-light);
+      border: 1px solid var(--border-color);
+      color: var(--accent-deep);
+      font-size: 20px;
+      transition: all 0.2s ease;
+    }
+    .cart-btn:hover {
+      background: var(--primary-yellow);
+      transform: scale(1.05);
+    }
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #EF4444;
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary-yellow), var(--primary-gold));
+      color: var(--accent-deep);
+      box-shadow: 0 6px 18px rgba(255, 168, 0, 0.35);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(255, 168, 0, 0.45);
+      background: linear-gradient(135deg, #FFD24D, #FFA800);
+    }
+    .btn-dark {
+      background: var(--accent-deep);
+      color: #FFF;
+      box-shadow: 0 6px 16px rgba(13, 43, 69, 0.25);
+    }
+    .btn-dark:hover {
+      background: var(--accent-navy);
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 2px solid var(--accent-deep);
+      color: var(--accent-deep);
+      background: transparent;
+    }
+    .btn-outline:hover {
+      background: var(--accent-deep);
+      color: #FFF;
+    }
+    .btn-sm {
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      font-size: 26px;
+      color: var(--accent-deep);
+    }
+
+    /* Hero Section */
     .hero {
       position: relative;
-      display: flex;
-      min-height: 704px;
+      padding: 70px 0 90px;
       overflow: hidden;
-      align-items: stretch;
-      background:
-        radial-gradient(circle at 85% 26%, rgba(117,198,232,.35) 0, rgba(117,198,232,.08) 18%, transparent 43%),
-        linear-gradient(135deg, #062742 0%, #062742 58%, #0a4168 100%);
-      color: #fff;
+      background: radial-gradient(circle at 85% 30%, #FFF3CA 0%, rgba(255, 253, 247, 0) 60%),
+                  linear-gradient(180deg, var(--bg-cream) 0%, #FFF8E1 100%);
     }
-    .hero::after {
+    .hero-decor-circle {
       position: absolute;
-      z-index: 0;
-      right: -18vw;
-      bottom: -22vw;
-      width: 50vw;
-      height: 50vw;
-      border: 1px solid rgba(117,198,232,.13);
+      right: -80px;
+      top: -60px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(255, 199, 44, 0.25) 0%, rgba(255, 199, 44, 0) 70%);
       border-radius: 50%;
-      content: "";
-    }
-    .hero-grid {
-      position: relative;
       z-index: 1;
+      pointer-events: none;
+    }
+    .hero-decor-boba {
+      position: absolute;
+      font-size: 28px;
+      opacity: 0.25;
+      animation: float 4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-16px) rotate(12deg); }
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.02fr .98fr;
-      gap: 45px;
+      grid-template-columns: 1.15fr 0.85fr;
       align-items: center;
-      padding-top: 122px;
-      padding-bottom: 72px;
-    }
-    .hero-content { max-width: 560px; }
-    .hero .eyebrow { color: var(--sky); }
-    .hero-title {
-      max-width: 540px;
-      margin: 0;
-      font-family: "Noto Serif TC", serif;
-      font-size: clamp(42px, 5.5vw, 68px);
-      font-weight: 700;
-      letter-spacing: .04em;
-      line-height: 1.22;
-    }
-    .hero-title .sky-word { color: var(--sky); }
-    .hero-lede { max-width: 490px; margin: 25px 0 0; color: rgba(255,255,255,.76); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
-    .hero-meta { margin: 27px 0 0; color: var(--sky); font-size: 10px; font-weight: 700; letter-spacing: .18em; }
-    .scroll-note { display: flex; align-items: center; gap: 10px; margin: 53px 0 0; color: rgba(255,255,255,.55); font-size: 9px; letter-spacing: .18em; }
-    .scroll-note::before { width: 38px; height: 1px; background: rgba(255,255,255,.45); content: ""; }
-
-    .hero-art {
+      gap: 48px;
       position: relative;
-      width: min(100%, 400px);
-      height: 300px;
-      min-height: 0;
-      margin-left: auto;
-      overflow: visible;
-      aspect-ratio: auto;
-      border: 0;
-      background: transparent;
-      box-shadow: none;
+      z-index: 2;
     }
-    .hero-photo { width: 400px; height: 300px; object-fit: cover; box-shadow: 24px 24px 0 rgba(117,198,232,.13), var(--shadow); }
-    .window-frame { position: absolute; inset: 0; border: 12px solid #e8d4ae; box-shadow: inset 0 0 0 2px rgba(6,39,66,.18); }
-    .window-frame::before, .window-frame::after { position: absolute; background: rgba(6,39,66,.25); content: ""; }
-    .window-frame::before { top: 0; bottom: 0; left: 49%; width: 4px; }
-    .window-frame::after { top: 46%; right: 0; left: 0; height: 4px; }
-    .sun { position: absolute; top: 16%; right: 17%; width: 77px; height: 77px; border-radius: 50%; background: #fff2be; box-shadow: 0 0 45px 22px rgba(255,228,150,.42); }
-    .mountain { position: absolute; bottom: 28%; width: 75%; height: 36%; clip-path: polygon(0 100%, 35% 15%, 48% 50%, 63% 0, 100% 100%); background: #497b83; opacity: .9; }
-    .mountain.one { left: -12%; }
-    .mountain.two { right: -27%; bottom: 27%; background: #30616b; transform: scaleX(-1); opacity: .75; }
-    .tabletop { position: absolute; right: -8%; bottom: -7%; left: -8%; height: 33%; background: linear-gradient(#643e2e 0%, #3d251e 100%); transform: perspective(200px) rotateX(10deg); }
-    .chair { position: absolute; right: 7%; bottom: 18%; width: 100px; height: 112px; border: 12px solid #543126; border-bottom: 0; border-radius: 48px 48px 0 0; opacity: .8; }
-    .chair::after { position: absolute; bottom: -75px; left: 14px; width: 8px; height: 75px; background: #543126; box-shadow: 53px 0 #543126; content: ""; }
-    .coffee-vessel { position: absolute; bottom: 14%; left: 28%; width: 112px; height: 105px; }
-    .coffee-vessel .dripper { position: absolute; top: 0; left: 29px; width: 53px; height: 45px; border: 3px solid #d8e7e1; border-radius: 5px 5px 22px 22px; background: linear-gradient(135deg, rgba(222,246,240,.75), rgba(124,180,181,.2)); clip-path: polygon(0 0, 100% 0, 78% 100%, 22% 100%); }
-    .coffee-vessel .carafe { position: absolute; bottom: 0; left: 17px; width: 78px; height: 68px; border: 3px solid #d8e7e1; border-radius: 10px 10px 23px 23px; background: linear-gradient(to top, rgba(56,29,19,.82) 0 38%, rgba(190,228,227,.24) 39%); }
-    .coffee-vessel .carafe::before { position: absolute; top: -20px; left: 24px; width: 26px; height: 22px; border: 3px solid #d8e7e1; border-bottom: 0; border-radius: 50% 50% 0 0; content: ""; }
-    .steam { position: absolute; bottom: 59%; left: 49%; width: 23px; height: 58px; border-left: 2px solid rgba(255,255,255,.63); border-radius: 50%; transform: rotate(16deg); }
-    .steam::after { position: absolute; top: -5px; left: 14px; width: 18px; height: 48px; border-right: 2px solid rgba(255,255,255,.44); border-radius: 50%; content: ""; }
-    .art-label { position: absolute; z-index: 3; right: -11px; top: 42%; display: grid; gap: 2px; padding: 10px 11px; border-left: 2px solid var(--sand); background: rgba(6,39,66,.86); color: #fff; }
-    .art-label strong { font-family: "Playfair Display", serif; font-size: 22px; line-height: 1; }
-    .art-label span { color: var(--sky); font-size: 9px; letter-spacing: .09em; }
-    .art-label small { color: rgba(255,255,255,.72); font-size: 9px; }
 
-    .story { padding: 115px 0 120px; background: #fff; }
-    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(45px, 9vw, 105px); align-items: center; }
-    .story-visual { position: relative; min-height: 400px; }
-    .story-seal {
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--tea-amber);
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .hero-tag span {
+      background: var(--primary-yellow);
+      color: var(--accent-deep);
+      font-size: 11px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .hero-title {
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.2;
+      font-weight: 900;
+      color: var(--accent-deep);
+      margin-bottom: 20px;
+      letter-spacing: -0.5px;
+    }
+    .hero-title .highlight {
+      position: relative;
+      color: var(--tea-amber);
+      display: inline-block;
+    }
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 6px;
+      width: 100%;
+      height: 14px;
+      background: rgba(255, 199, 44, 0.45);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
       display: grid;
-      width: 320px;
-      height: 320px;
-      place-content: center;
-      margin: 0 auto;
-      border: 1px solid var(--sky);
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      padding-top: 28px;
+      border-top: 1px dashed var(--border-color);
+    }
+    .hero-stat-item h4 {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent-deep);
+      margin-bottom: 2px;
+    }
+    .hero-stat-item p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Hero Visual Card */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cup-card {
+      position: relative;
+      background: linear-gradient(145deg, #FFFFFF, #FFFBEB);
+      border: 3px solid var(--primary-yellow);
+      border-radius: 36px;
+      padding: 36px 30px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 40px rgba(255, 168, 0, 0.22);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .cup-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .drink-badge {
+      position: absolute;
+      top: -15px;
+      right: 25px;
+      background: #EF4444;
+      color: #FFF;
+      font-weight: 800;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 4px 12px rgba(239, 68, 68, 0.35);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    /* Animated CSS Drink Cup Illustration */
+    .cup-illustration {
+      width: 180px;
+      height: 240px;
+      margin: 10px auto 20px;
+      position: relative;
+    }
+    .cup-body {
+      width: 150px;
+      height: 200px;
+      margin: 20px auto 0;
+      background: linear-gradient(180deg, #F9D08B 0%, #D88939 40%, #B85F18 100%);
+      border-radius: 12px 12px 34px 34px;
+      border: 4px solid #1E293B;
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset -8px 0 15px rgba(0,0,0,0.15);
+    }
+    .cup-milk-cap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: linear-gradient(180deg, #FFFFFF 60%, rgba(255,255,255,0.7) 100%);
+      border-bottom: 2px dashed rgba(217, 119, 6, 0.3);
+    }
+    .cup-ice {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.7);
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      border-radius: 6px;
+      transform: rotate(20deg);
+    }
+    .cup-ice.i1 { top: 25px; left: 25px; }
+    .cup-ice.i2 { top: 38px; right: 30px; transform: rotate(-15deg); }
+
+    .cup-bobas {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 75px;
+      background: rgba(43, 23, 12, 0.4);
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-end;
+      padding: 6px;
+      gap: 4px;
+      justify-content: center;
+    }
+    .boba-dot {
+      width: 18px;
+      height: 18px;
+      background: radial-gradient(circle at 35% 35%, #5C3A21, #1A0E07);
       border-radius: 50%;
-      background: radial-gradient(circle, #fff 0 55%, #eaf5f7 56% 60%, #fff 61%);
-      color: var(--navy);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      animation: bobaBounce 3s ease-in-out infinite alternate;
+    }
+    .boba-dot:nth-child(2n) { animation-delay: 0.4s; }
+    .boba-dot:nth-child(3n) { animation-delay: 0.8s; }
+    .boba-dot:nth-child(4n) { animation-delay: 1.2s; }
+    @keyframes bobaBounce {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-4px); }
+    }
+
+    .cup-straw {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      width: 18px;
+      height: 120px;
+      background: repeating-linear-gradient(45deg, #EF4444, #EF4444 8px, #FFF 8px, #FFF 16px);
+      border: 3px solid #1E293B;
+      border-radius: 8px;
+      transform: rotate(14deg);
+      z-index: 5;
+    }
+    .cup-lid {
+      position: absolute;
+      top: 10px;
+      left: calc(50% - 85px);
+      width: 170px;
+      height: 16px;
+      background: #FFC72C;
+      border: 3px solid #1E293B;
+      border-radius: 12px;
+      z-index: 4;
+    }
+    .cup-sticker {
+      position: absolute;
+      top: 65px;
+      left: calc(50% - 35px);
+      width: 70px;
+      height: 70px;
+      background: #FFF;
+      border: 2px solid #1E293B;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      color: var(--accent-deep);
+      font-size: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      z-index: 3;
+    }
+    .cup-sticker span {
+      font-size: 9px;
+      color: var(--tea-amber);
+      letter-spacing: 1px;
+    }
+
+    .cup-info h3 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--accent-deep);
+      margin-bottom: 6px;
+    }
+    .cup-info p {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .cup-price {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .cup-price .price-num {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--tea-brown);
+    }
+    .cup-price .price-original {
+      font-size: 15px;
+      color: #9CA3AF;
+      text-decoration: line-through;
+    }
+    .cup-price .price-tag {
+      background: var(--bg-warm-light);
+      border: 1px solid var(--primary-yellow);
+      color: var(--tea-amber);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    /* Features Strip */
+    .features-strip {
+      background: #FFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 30px 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--bg-warm-light);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--tea-amber);
+      flex-shrink: 0;
+    }
+    .feature-text h4 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--accent-deep);
+      margin-bottom: 2px;
+    }
+    .feature-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Section Header */
+    .section-head {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: var(--tea-amber);
+      background: var(--bg-warm-light);
+      border: 1px solid var(--border-color);
+      padding: 4px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .section-title {
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 900;
+      color: var(--accent-deep);
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Drink Lucky Wheel / Picker Section (Fun Gamification to drive sales) */
+    .lucky-section {
+      padding: 80px 0;
+      background: linear-gradient(180deg, #FFF8E1 0%, #FFFDF7 100%);
+      position: relative;
+    }
+    .lucky-card {
+      background: #FFF;
+      border: 2px solid var(--primary-yellow);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    .lucky-info h3 {
+      font-size: 30px;
+      font-weight: 900;
+      color: var(--accent-deep);
+      margin-bottom: 14px;
+    }
+    .lucky-info p {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+    .lucky-display {
+      background: var(--bg-warm-light);
+      border: 2px dashed var(--primary-yellow);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .lucky-emoji {
+      font-size: 52px;
+      margin-bottom: 8px;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .lucky-drink-name {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--accent-deep);
+      margin-bottom: 4px;
+    }
+    .lucky-drink-desc {
+      font-size: 14px;
+      color: var(--tea-amber);
+      font-weight: 600;
+    }
+
+    /* Menu Section */
+    .menu-section {
+      padding: 90px 0;
+    }
+    .menu-filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      font-size: 14px;
+      font-weight: 700;
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      color: var(--text-dark);
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .filter-btn:hover {
+      border-color: var(--primary-gold);
+      color: var(--tea-amber);
+    }
+    .filter-btn.active {
+      background: var(--primary-yellow);
+      color: var(--accent-deep);
+      border-color: var(--primary-yellow);
+      box-shadow: 0 4px 12px rgba(255, 199, 44, 0.4);
+    }
+
+    .drinks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .drink-card {
+      background: #FFF;
+      border: 1px solid #F1E9D2;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .drink-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-yellow);
+    }
+    .drink-card-top {
+      background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
+    }
+    .drink-card-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent-deep);
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .drink-card-badge-right {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #EF4444;
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .drink-card-icon {
+      font-size: 56px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+    .drink-card:hover .drink-card-icon {
+      transform: scale(1.15) rotate(6deg);
+    }
+    .drink-card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .drink-card-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--accent-deep);
+      margin-bottom: 6px;
+    }
+    .drink-card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+    .drink-card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed #E5E7EB;
+    }
+    .drink-calories {
+      font-size: 12px;
+      color: #9CA3AF;
+    }
+    .drink-price-box {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+    }
+    .drink-card-price {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--tea-brown);
+    }
+    .drink-card-currency {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--tea-amber);
+    }
+
+    /* Customization Guide Section */
+    .customize-guide-section {
+      padding: 80px 0;
+      background: #FFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+    .guide-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .guide-box {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: transform 0.25s ease;
+    }
+    .guide-box:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .guide-box h4 {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--accent-deep);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .guide-box ul {
+      list-style: none;
+    }
+    .guide-box li {
+      font-size: 14px;
+      color: var(--text-dark);
+      padding: 8px 0;
+      border-bottom: 1px dashed rgba(217, 119, 6, 0.15);
+      display: flex;
+      justify-content: space-between;
+    }
+    .guide-box li span.sub {
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .guide-box li:last-child {
+      border-bottom: none;
+    }
+
+    /* Promotions / Value Deals Section */
+    .promo-section {
+      padding: 90px 0;
+      background: linear-gradient(135deg, #1A365D 0%, #0D2B45 100%);
+      color: #FFF;
+      position: relative;
+      overflow: hidden;
+    }
+    .promo-section::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 199, 44, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .promo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+    .promo-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: var(--radius-md);
+      padding: 32px 26px;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    .promo-card:hover {
+      transform: translateY(-6px);
+      background: rgba(255, 255, 255, 0.14);
+      border-color: var(--primary-yellow);
+    }
+    .promo-ribbon {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: var(--primary-yellow);
+      color: var(--accent-deep);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+    .promo-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    .promo-card h3 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #FFF;
+    }
+    .promo-card p {
+      font-size: 14px;
+      color: #E2E8F0;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* Customer Reviews */
+    .reviews-section {
+      padding: 90px 0;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .review-card {
+      background: #FFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+    .review-stars {
+      color: #F59E0B;
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+    .review-text {
+      font-size: 14px;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid #F3F4F6;
+      padding-top: 14px;
+    }
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--bg-warm-light);
+      border: 2px solid var(--primary-yellow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    .author-info h5 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--accent-deep);
+    }
+    .author-info span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Stores / Delivery CTA */
+    .delivery-cta {
+      padding: 70px 0;
+      background: linear-gradient(135deg, var(--primary-yellow) 0%, #FFB800 100%);
+      color: var(--accent-deep);
       text-align: center;
     }
-    .story-seal::before { display: block; margin-bottom: 14px; color: var(--blue); content: "B"; font-family: "Playfair Display", serif; font-size: 73px; line-height: 1; }
-    .story-seal strong { font-family: "Noto Serif TC", serif; font-size: 18px; letter-spacing: .09em; }
-    .story-seal span { margin-top: 10px; color: var(--blue); font-size: 9px; font-weight: 700; letter-spacing: .15em; }
-    .note-card { position: absolute; right: 0; bottom: 0; width: min(225px, 57%); padding: 25px; background: var(--navy); color: #fff; box-shadow: var(--shadow); }
-    .note-card p:first-child { margin: 0; color: var(--sky); font-size: 10px; font-weight: 700; letter-spacing: .16em; }
-    .note-card p:last-child { margin: 12px 0 0; font-family: "Noto Serif TC", serif; font-size: 16px; line-height: 1.65; }
-    .story-content p { margin: 19px 0 0; color: var(--muted); }
-    .story-content p + p { margin-top: 15px; }
-    .underlined-link { display: inline-flex; margin-top: 27px; padding-bottom: 5px; border-bottom: 1px solid var(--blue); color: var(--blue); font-size: 14px; font-weight: 600; transition: gap .2s ease; }
-    .underlined-link:hover { gap: 8px; }
-
-    .coffee { padding: 112px 0 120px; background: var(--mist); }
-    .coffee-heading { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 43px; }
-    .coffee-heading .section-copy { max-width: 365px; }
-    .coffee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 19px; }
-    .coffee-card {
-      position: relative;
-      display: flex;
-      min-height: 384px;
-      overflow: hidden;
-      flex-direction: column;
-      padding: 31px 29px 25px;
-      background: var(--navy);
-      color: #fff;
-      box-shadow: var(--shadow);
+    .delivery-cta h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 900;
+      margin-bottom: 14px;
     }
-    .coffee-card:nth-child(2) { background: #106396; }
-    .coffee-card:nth-child(3) { background: #164c68; }
-    .coffee-card::after { position: absolute; right: -73px; bottom: -90px; width: 230px; height: 230px; border: 25px solid rgba(117,198,232,.15); border-radius: 50%; content: ""; }
-    .coffee-card > * { position: relative; z-index: 1; }
-    .bean-no { margin: 0; color: var(--sky); font-family: "Playfair Display", serif; font-size: 14px; font-weight: 600; letter-spacing: .11em; }
-    .origin { margin: 19px 0 5px; color: rgba(255,255,255,.67); font-size: 10px; font-weight: 700; letter-spacing: .13em; }
-    .bean-name { margin: 0; font-family: "Noto Serif TC", serif; font-size: 24px; font-weight: 700; letter-spacing: .04em; line-height: 1.35; }
-    .flavour { margin: 14px 0 0; color: rgba(255,255,255,.79); font-size: 14px; }
-    .coffee-bottom { display: flex; align-items: center; justify-content: space-between; gap: 13px; margin-top: auto; padding-top: 23px; border-top: 1px solid rgba(255,255,255,.22); }
-    .price { font-family: "Playfair Display", serif; font-size: 14px; white-space: nowrap; }
-    .save-button { padding: 5px 0; border: 0; background: transparent; color: #fff; font-size: 13px; font-weight: 600; white-space: nowrap; transition: color .2s ease; }
-    .save-button:hover { color: var(--sand); }
+    .delivery-cta p {
+      font-size: 17px;
+      max-width: 620px;
+      margin: 0 auto 30px;
+      font-weight: 500;
+    }
+    .delivery-phone-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      background: #FFF;
+      padding: 12px 28px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--accent-deep);
+    }
 
-    .brew { padding: 115px 0 120px; background: #fff; }
-    .brew-grid { display: grid; grid-template-columns: .93fr 1.07fr; gap: clamp(44px, 7vw, 90px); align-items: center; }
-    .brew-art { position: relative; min-height: 448px; overflow: hidden; background: linear-gradient(138deg, #eef9fa 0 50%, #d6edf3 50% 100%); }
-    .brew-art::before { position: absolute; top: 33px; left: 30px; width: 70px; height: 35px; border-top: 1px solid var(--sky); border-left: 1px solid var(--sky); content: ""; }
-    .brew-art::after { position: absolute; top: 49px; left: 46px; width: 70px; height: 35px; border-top: 1px solid var(--sky); border-left: 1px solid var(--sky); content: ""; }
-    .pour-rings { position: absolute; top: 50%; left: 50%; width: 238px; height: 238px; border: 1px solid rgba(12,91,149,.35); border-radius: 50%; transform: translate(-50%,-46%); }
-    .pour-rings::before, .pour-rings::after { position: absolute; border: 1px solid rgba(12,91,149,.28); border-radius: 50%; content: ""; }
-    .pour-rings::before { inset: 27px; }
-    .pour-rings::after { inset: 57px; }
-    .pour-line { position: absolute; top: 39px; left: 50%; width: 1px; height: 140px; background: var(--blue); transform: rotate(24deg); transform-origin: bottom; }
-    .v60 { position: absolute; top: 50%; left: 50%; width: 140px; height: 105px; border: 3px solid var(--navy); border-top-width: 4px; background: rgba(255,255,255,.7); clip-path: polygon(0 0, 100% 0, 74% 100%, 26% 100%); transform: translate(-50%,-33%); }
-    .v60::after { position: absolute; bottom: -61px; left: 35px; width: 64px; height: 58px; border: 3px solid var(--navy); border-radius: 8px 8px 19px 19px; background: linear-gradient(to top, #6c3924 0 31%, rgba(255,255,255,.5) 32%); content: ""; }
-    .brew-caption { position: absolute; right: 27px; bottom: 25px; display: grid; color: var(--navy); text-align: right; }
-    .brew-caption strong { font-family: "Playfair Display", serif; font-size: 21px; letter-spacing: .05em; }
-    .brew-caption span { font-size: 10px; font-weight: 700; letter-spacing: .12em; }
-    .brew-content .section-copy { max-width: 530px; }
-    .brew-steps { margin-top: 28px; border-top: 1px solid var(--line); }
-    .brew-step { display: grid; grid-template-columns: 55px 1fr; gap: 14px; padding: 19px 0; border-bottom: 1px solid var(--line); }
-    .step-no { color: var(--blue); font-family: "Playfair Display", serif; font-size: 25px; font-weight: 600; line-height: 1; }
-    .brew-step h3 { margin: 0; font-family: "Noto Serif TC", serif; font-size: 17px; letter-spacing: .03em; }
-    .brew-step p { margin: 5px 0 0; color: var(--muted); font-size: 14px; }
+    /* Footer */
+    .footer {
+      background: #0B1F33;
+      color: #94A3B8;
+      padding: 70px 0 30px;
+      font-size: 14px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 40px;
+      margin-bottom: 50px;
+    }
+    .footer-col h4 {
+      color: #FFF;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .footer-col p {
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #94A3B8;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--primary-yellow);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 13px;
+    }
 
-    .visit { position: relative; overflow: hidden; padding: 116px 0; background: var(--navy); color: #fff; text-align: center; }
-    .visit::before, .visit::after { position: absolute; width: 380px; height: 380px; border: 1px solid rgba(117,198,232,.19); border-radius: 50%; content: ""; }
-    .visit::before { top: -250px; left: -145px; }
-    .visit::after { right: -165px; bottom: -260px; width: 450px; height: 450px; border-width: 22px; opacity: .45; }
-    .visit .wrap { position: relative; z-index: 1; max-width: 730px; }
-    .visit .eyebrow { justify-content: center; color: var(--sky); }
-    .visit .section-title { max-width: 670px; margin-inline: auto; }
-    .visit .section-copy { max-width: 535px; margin-inline: auto; color: rgba(255,255,255,.72); }
-    .subscribe-form { display: flex; margin: 34px auto 0; padding: 5px; border: 1px solid rgba(255,255,255,.58); }
-    .subscribe-form input { min-width: 0; flex: 1; padding: 11px 15px; border: 0; outline: 0; background: transparent; color: #fff; }
-    .subscribe-form input::placeholder { color: rgba(255,255,255,.58); }
-    .subscribe-form button { min-height: 48px; padding: 10px 20px; border: 0; border-radius: 1px; background: var(--sand); color: var(--navy); font-size: 14px; font-weight: 700; transition: background .2s ease; }
-    .subscribe-form button:hover { background: #f1ca83; }
+    /* Modal / Order Dialog */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 43, 69, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+    .modal-box {
+      background: #FFF;
+      width: 100%;
+      max-width: 500px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-overlay.active .modal-box {
+      transform: scale(1);
+    }
+    .modal-header {
+      background: var(--bg-warm-light);
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .modal-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--accent-deep);
+    }
+    .modal-close {
+      font-size: 24px;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+    }
+    .modal-section-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin: 16px 0 8px;
+    }
+    .modal-options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+    }
+    .option-btn {
+      padding: 8px;
+      border: 1px solid #E5E7EB;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      background: #FFF;
+      transition: all 0.2s;
+    }
+    .option-btn.active {
+      background: var(--primary-yellow);
+      border-color: var(--primary-yellow);
+      color: var(--accent-deep);
+      font-weight: 800;
+    }
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid #F3F4F6;
+      background: #FAFAFA;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-    .site-footer { padding: 65px 0 25px; background: #031c31; color: rgba(255,255,255,.68); }
-    .footer-grid { display: grid; grid-template-columns: 1.45fr .75fr .9fr; gap: 54px; padding-bottom: 46px; }
-    .footer-brand .brand { margin-bottom: 18px; }
-    .footer-brand p { max-width: 355px; margin: 0; font-size: 14px; }
-    .footer-heading { margin: 3px 0 17px; color: var(--sky); font-size: 11px; font-weight: 700; letter-spacing: .15em; }
-    .footer-links, .footer-contact { display: grid; gap: 10px; font-size: 14px; }
-    .footer-links a:hover, .footer-contact a:hover { color: #fff; }
-    .footer-bottom { display: flex; justify-content: space-between; gap: 18px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.17); color: rgba(255,255,255,.47); font-size: 10px; letter-spacing: .1em; }
+    /* Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cart-drawer-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 400px;
+      background: #FFF;
+      z-index: 1001;
+      box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .cart-drawer.active {
+      transform: translateX(0);
+    }
+    .cart-drawer-head {
+      padding: 20px;
+      background: var(--bg-warm-light);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-drawer-items {
+      flex-grow: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #F3F4F6;
+    }
+    .cart-item-title {
+      font-weight: 800;
+      font-size: 15px;
+      color: var(--accent-deep);
+    }
+    .cart-item-specs {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .cart-item-price {
+      font-weight: 800;
+      color: var(--tea-brown);
+    }
+    .cart-item-remove {
+      color: #EF4444;
+      font-size: 12px;
+      cursor: pointer;
+      margin-left: 8px;
+    }
+    .cart-drawer-foot {
+      padding: 20px;
+      border-top: 1px solid #F3F4F6;
+      background: #FAFAFA;
+    }
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: var(--accent-deep);
+    }
 
+    /* Toast Notification */
     .toast {
       position: fixed;
-      z-index: 20;
-      right: 22px;
-      bottom: 22px;
-      max-width: min(360px, calc(100% - 44px));
-      padding: 13px 18px;
-      border-left: 3px solid var(--sand);
-      background: var(--navy);
-      box-shadow: var(--shadow);
-      color: #fff;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--accent-deep);
+      color: #FFF;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-lg);
       font-size: 14px;
+      font-weight: 700;
+      z-index: 2000;
       opacity: 0;
-      pointer-events: none;
-      transform: translateY(12px);
-      transition: opacity .22s ease, transform .22s ease;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    .toast.show { opacity: 1; transform: translateY(0); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
 
-    @media (max-width: 820px) {
-      .navbar { position: relative; }
-      .menu-toggle { display: block; }
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        right: -24px;
-        left: -24px;
-        display: grid;
-        max-height: 0;
-        overflow: hidden;
-        gap: 0;
-        background: #05233c;
-        transition: max-height .32s ease;
+    /* Responsive Queries */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
       }
-      .nav-links.open { max-height: 300px; }
-      .nav-links a { padding: 12px 24px; border-top: 1px solid rgba(255,255,255,.1); }
-      .nav-links .nav-cta { margin: 8px 24px 16px; padding: 9px 12px; text-align: center; }
-      .hero { min-height: 710px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 17px; padding-top: 112px; }
-      .hero-content { max-width: 640px; }
-      .scroll-note { margin-top: 29px; }
-      .hero-art { width: min(100%, 330px); height: 248px; min-height: 0; max-height: none; margin: 0; }
-      .hero-photo { width: 330px; height: 248px; }
-      .coffee-grid { grid-template-columns: repeat(2, 1fr); }
-      .coffee-card:nth-child(3) { grid-column: span 2; }
-      .story-grid, .brew-grid { grid-template-columns: 1fr; }
-      .story-visual { max-width: 520px; width: 100%; margin: auto; }
-      .brew-art { max-width: 540px; width: 100%; margin: auto; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+      .hero-desc {
+        margin: 0 auto 32px;
+      }
+      .hero-cta-group {
+        justify-content: center;
+      }
+      .hero-stats {
+        justify-content: center;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .features-grid, .promo-grid, .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .lucky-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .guide-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    @media (max-width: 560px) {
-      .wrap { width: calc(100% - 34px); }
-      .navbar { min-height: 70px; }
-      .brand-copy strong { font-size: 13px; }
-      .hero { min-height: 680px; }
-      .hero-grid { padding-top: 98px; padding-bottom: 34px; }
-      .hero-title { font-size: 40px; }
-      .hero-lede { margin-top: 16px; font-size: 14px; line-height: 1.7; }
-      .hero-actions { margin-top: 23px; }
-      .hero-actions .button { flex: 1; padding-inline: 13px; }
-      .hero-meta { margin-top: 18px; }
-      .hero-art { width: 260px; height: 195px; min-height: 0; max-height: none; }
-      .hero-photo { width: 260px; height: 195px; }
-      .art-label { display: none; }
-      .sun { width: 49px; height: 49px; }
-      .coffee-vessel { bottom: 9%; left: 25%; transform: scale(.72); transform-origin: bottom left; }
-      .chair { transform: scale(.72); transform-origin: bottom right; }
-      .story, .coffee, .brew, .visit { padding: 76px 0; }
-      .story-seal { width: 245px; height: 245px; }
-      .story-seal::before { margin-bottom: 8px; font-size: 54px; }
-      .story-seal strong { font-size: 15px; }
-      .story-visual { min-height: 315px; }
-      .note-card { width: 185px; padding: 18px; }
-      .note-card p:last-child { font-size: 14px; }
-      .coffee-heading { display: block; margin-bottom: 30px; }
-      .coffee-heading .section-copy { margin-top: 14px; }
-      .coffee-grid { grid-template-columns: 1fr; }
-      .coffee-card, .coffee-card:nth-child(3) { min-height: 330px; grid-column: auto; }
-      .brew-art { min-height: 310px; }
-      .pour-rings { width: 185px; height: 185px; }
-      .v60 { transform: translate(-50%,-28%) scale(.82); }
-      .subscribe-form { display: grid; gap: 6px; padding: 5px; }
-      .subscribe-form input, .subscribe-form button { width: 100%; }
-      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer-brand { grid-column: auto; }
-      .footer-bottom { display: grid; gap: 9px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-      .reveal { opacity: 1; transform: none; }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .features-grid, .promo-grid, .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-title {
+        font-size: 34px;
+      }
+      .lucky-card {
+        padding: 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <nav class="wrap navbar" aria-label="主要導覽">
-      <a class="brand" href="#top" aria-label="回到藍天咖啡首頁">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span class="brand-copy"><strong>藍天咖啡</strong><small>BLUE SKY COFFEE</small></span>
-      </a>
-      <button class="menu-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="開啟導覽選單">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#story">我們的故事</a>
-        <a href="#coffee">本季選豆</a>
-        <a href="#brew">沖煮日常</a>
-        <a class="nav-cta" href="#visit">訂閱風味通信</a>
-      </div>
-    </nav>
+
+  <!-- Announcement Bar -->
+  <aside class="announcement-bar" aria-label="?單??芣??">
+    <span class="badge-pill">???芣?</span>
+    <span>? ?嗥??圈?撟??典????嫣?鞎?5 ??1嚗飛??霅澈瘥?暹? 5 ??</span>
+  </aside>
+
+  <!-- Header Navigation -->
+  <header class="header" id="navbar">
+    <div class="container">
+      <nav class="nav">
+        <!-- Logo -->
+        <a href="#home" class="logo">
+          <div class="logo-badge">?奶</div>
+          <div class="logo-text">
+            60<span>撋?/span>
+            <span class="logo-sub">BUBBLE TEA & DRINKS</span>
+          </div>
+        </a>
+
+        <!-- Nav Links -->
+        <div class="nav-links">
+          <a href="#home" class="nav-link">擐?</a>
+          <a href="#menu" class="nav-link">鈭箸除?</a>
+          <a href="#lucky" class="nav-link">隞??暻潘?</a>
+          <a href="#customization" class="nav-link">摰Ｚˊ????/a>
+          <a href="#promos" class="nav-link">閬芣??芣?</a>
+          <a href="#reviews" class="nav-link">憿批恥憟質?</a>
+        </div>
+
+        <!-- Right Action Items -->
+        <div class="nav-actions">
+          <button class="cart-btn" id="openCartBtn" title="?亦?鞈潛頠? aria-label="?亦?鞈潛頠?>
+            ??
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+          <a href="#menu" class="btn btn-primary btn-sm">擐砌?暺?</a>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="???詨">??/button>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="wrap hero-grid">
-        <div class="hero-content">
-          <p class="eyebrow">HAND BREWED · SLOWLY ROASTED</p>
-          <h1 class="hero-title" id="heroTitle">讓風味，在<span class="sky-word">藍天</span>下慢慢抵達。</h1>
-          <p class="hero-lede">藍天咖啡為喜歡手沖的您，挑選值得細品的單一產區咖啡豆。從第一縷花香，到最後一口回甘，每一杯都有屬於自己的晴朗天氣。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#coffee">探索本季咖啡豆 →</a>
-            <a class="button button-outline" href="#story">認識藍天</a>
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-decor-circle"></div>
+    <div class="hero-decor-boba" style="top: 15%; left: 8%;">??</div>
+    <div class="hero-decor-boba" style="bottom: 20%; left: 45%; font-size: 34px;">??</div>
+    <div class="hero-decor-boba" style="top: 25%; right: 5%; font-size: 32px;">??</div>
+
+    <div class="container hero-grid">
+      <!-- Hero Left Text -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>?蝢?</span> ?ㄡ??敹憭折嚗像?孵末?嗆??
+        </div>
+        <h1 class="hero-title">
+          ??憌脫??之摰?br>
+          隞予撠勗? <span class="highlight">60撋?</span>
+        </h1>
+        <p class="hero-desc">
+          ???貊?曄?典憟質??雿摹敶郭?貉?憭扳遛鞎怨?撖???潸扛瘞鞎?嚗之?臬閬??踹嚗隢??閫?葩?摮詨擖??航齒?砍恕銝??塚??冽?靘??荔?撟貊?撠望?獐蝪∪嚗?
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#menu" class="btn btn-primary">
+            <span>?</span> ?亦?鈭箸除???擗?
+          </a>
+          <a href="#lucky" class="btn btn-dark">
+            <span>?</span> ?豢???嚗鼠雿銝??
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <h4>$35<small style="font-size: 16px;">韏?/small></h4>
+            <p>頞潮??輯扛瘞</p>
           </div>
-          <p class="hero-meta">TAIPEI · TAIWAN · EST. 2025</p>
-          <p class="scroll-note">SCROLL TO DISCOVER</p>
-        </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <img class="hero-photo" src="images/hero.jpg" width="400" height="300" alt="">
-          <span class="art-label"><strong>92°C</strong><span>理想水溫</span><small>細細喚醒香氣</small></span>
-        </div>
-      </div>
-    </section>
-
-    <section class="story" id="story" aria-labelledby="storyTitle">
-      <div class="wrap story-grid">
-        <div class="story-visual reveal" aria-hidden="true">
-          <div class="story-seal"><strong>慢一點，<br>更清楚。</strong><span>LET THE FLAVOUR SPEAK</span></div>
-          <div class="note-card"><p>BLUE SKY NOTE</p><p>一杯好咖啡，從來不是匆忙完成的事。</p></div>
-        </div>
-        <div class="story-content reveal">
-          <p class="eyebrow">OUR PHILOSOPHY</p>
-          <h2 class="section-title" id="storyTitle">在一杯之間，看見產地的<span class="accent">晴朗</span>。</h2>
-          <p>我們相信，精品咖啡的美好不該被複雜掩蓋。以小批次烘焙留住豆子的個性，再用穩定、誠實的手沖，讓風土與時間在杯中變得清晰。</p>
-          <p>給懂得放慢腳步的人，也給每一個想重新認識咖啡的人。</p>
-          <a class="underlined-link" href="#brew">看看我們如何沖煮 →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="coffee" id="coffee" aria-labelledby="coffeeTitle">
-      <div class="wrap">
-        <div class="coffee-heading reveal">
-          <div>
-            <p class="eyebrow">SEASONAL SELECTION</p>
-            <h2 class="section-title" id="coffeeTitle">今天，想喝哪一片<span class="accent">藍天</span>？</h2>
+          <div class="hero-stat-item">
+            <h4>100%</h4>
+            <p>瘥?曄?嗆僖</p>
           </div>
-          <p class="section-copy">三款當季單品，為不同的晨光、午後與靜夜而選。</p>
-        </div>
-        <div class="coffee-grid">
-          <article class="coffee-card reveal">
-            <p class="bean-no">01 / BRIGHT</p>
-            <p class="origin">ETHIOPIA · YIRGACHEFFE</p>
-            <h3 class="bean-name">衣索比亞・耶加雪菲</h3>
-            <p class="flavour">白花、佛手柑、蜂蜜</p>
-            <div class="coffee-bottom"><span class="price">NT$ 520 / 200g</span><button class="save-button" type="button" data-coffee="衣索比亞・耶加雪菲">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <p class="bean-no">02 / JUICY</p>
-            <p class="origin">KENYA · KIRINYAGA</p>
-            <h3 class="bean-name">肯亞・祈安布</h3>
-            <p class="flavour">黑醋栗、洛神、葡萄柚</p>
-            <div class="coffee-bottom"><span class="price">NT$ 580 / 200g</span><button class="save-button" type="button" data-coffee="肯亞・祈安布">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <p class="bean-no">03 / ROUND</p>
-            <p class="origin">COLOMBIA · HUILA</p>
-            <h3 class="bean-name">哥倫比亞・慧蘭</h3>
-            <p class="flavour">黃桃、焦糖、可可尾韻</p>
-            <div class="coffee-bottom"><span class="price">NT$ 460 / 200g</span><button class="save-button" type="button" data-coffee="哥倫比亞・慧蘭">加入收藏 ＋</button></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="brew" id="brew" aria-labelledby="brewTitle">
-      <div class="wrap brew-grid">
-        <div class="brew-art reveal" aria-hidden="true">
-          <span class="pour-rings"></span><span class="pour-line"></span><span class="v60"></span>
-          <span class="brew-caption"><strong>2'45''</strong><span>V60 / 15G : 240ML</span></span>
-        </div>
-        <div class="brew-content reveal">
-          <p class="eyebrow">A QUIET RITUAL</p>
-          <h2 class="section-title" id="brewTitle">把時間交給水，讓咖啡說<span class="accent">自己的話</span>。</h2>
-          <p class="section-copy">不需要繁複儀式，只要三個安靜的步驟。每一個參數，都是為了讓你更靠近豆子原本的樣子。</p>
-          <div class="brew-steps">
-            <div class="brew-step"><span class="step-no">01</span><div><h3>研磨，先聞見期待</h3><p>15g 中細研磨，讓香氣從指尖開始展開。</p></div></div>
-            <div class="brew-step"><span class="step-no">02</span><div><h3>悶蒸，等待第一個呼吸</h3><p>以 92°C 熱水浸潤 30 秒，喚醒甜感與層次。</p></div></div>
-            <div class="brew-step"><span class="step-no">03</span><div><h3>注水，保持自己的節奏</h3><p>穩定畫圈，讓 240ml 的清澈在 2 分 45 秒完成。</p></div></div>
+          <div class="hero-stat-item">
+            <h4>5000+</h4>
+            <p>瘥??舀</p>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="visit" id="visit" aria-labelledby="visitTitle">
-      <div class="wrap reveal">
-        <p class="eyebrow">THE BLUE SKY LETTER</p>
-        <h2 class="section-title" id="visitTitle">把下一杯好咖啡，寄到你的日常裡。</h2>
-        <p class="section-copy">每月一封風味通信，分享新豆、沖煮靈感與只給會員的小小驚喜。</p>
-        <form class="subscribe-form" id="subscribeForm">
-          <input type="email" aria-label="電子郵件地址" placeholder="你的電子郵件地址" required>
-          <button type="submit">訂閱風味通信</button>
-        </form>
-      </div>
-    </section>
-  </main>
+      <!-- Hero Right Interactive Cup Card -->
+      <div class="hero-visual">
+        <div class="cup-card">
+          <div class="drink-badge">?梢 NO.1 ??</div>
+          
+          <!-- Animated CSS Drink Cup -->
+          <div class="cup-illustration">
+            <div class="cup-straw"></div>
+            <div class="cup-lid"></div>
+            <div class="cup-body">
+              <div class="cup-milk-cap"></div>
+              <div class="cup-ice i1"></div>
+              <div class="cup-ice i2"></div>
+              <div class="cup-sticker">
+                60撋?
+                <span>??瘜ａ</span>
+              </div>
+              <div class="cup-bobas">
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+                <div class="boba-dot"></div>
+              </div>
+            </div>
+          </div>
 
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="#top" aria-label="回到藍天咖啡首頁"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>藍天咖啡</strong><small>BLUE SKY COFFEE</small></span></a>
-        <p>為喜歡手沖咖啡的你，留下一段慢慢品味、微微放晴的時間。</p>
-      </div>
-      <div>
-        <p class="footer-heading">EXPLORE</p>
-        <div class="footer-links"><a href="#story">我們的故事</a><a href="#coffee">本季選豆</a><a href="#brew">沖煮日常</a></div>
-      </div>
-      <div>
-        <p class="footer-heading">CONTACT</p>
-        <div class="footer-contact"><a href="mailto:hello@bluesky.coffee">hello@bluesky.coffee</a><span>台中市西屯區晨光路 100 號</span><span>每日 10:00 — 19:00</span></div>
+          <div class="cup-info">
+            <h3>蝬瘜ａ憟嗉</h3>
+            <p>擐??怨蝝憟園?摨??Ｙ?憔Q敶之瘜ａ</p>
+            <div class="cup-price">
+              <span class="price-original">NT$ 65</span>
+              <span class="price-num">NT$ 50</span>
+              <span class="price-tag">閬芣??孵</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="quickAdd('蝬瘜ａ憟嗉', 50, '??')">
+              ?? 蝡?頃?
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="wrap footer-bottom"><span>© 2025 BLUE SKY COFFEE. ALL RIGHTS RESERVED.</span><span>BREW SLOW · LIVE BRIGHT</span></div>
+  </section>
+
+  <!-- Features Strip -->
+  <section class="features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">?</div>
+          <div class="feature-text">
+            <h4>?寞撟單?餈犖</h4>
+            <p>?典???5?絲嚗飛???∠???</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">??</div>
+          <div class="feature-text">
+            <h4>??憌質雲撖血</h4>
+            <p>?郭璊啜?????銝??唳遛</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">??</div>
+          <div class="feature-text">
+            <h4>?圈悅?嗆?暹部</h4>
+            <p>?湧?啁?芾釭?嗉?嚗?銝??</p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">??/div>
+          <div class="feature-text">
+            <h4>憭翰???/h4>
+            <p>?券?皛?00?喲?銝??嗆??</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">POPULAR MENU</span>
+        <h2 class="section-title">鈭箸除憌脣??</h2>
+        <p class="section-desc">瘥?甈暸?臬???鞈潛??渲”???賂?憟質摨?璆菔??嚗予憭拙??賢?銝嚗?/p>
+      </div>
+
+      <!-- Category Filter -->
+      <div class="menu-filter-bar">
+        <button class="filter-btn active" data-category="all">?券憌脣? (All)</button>
+        <button class="filter-btn" data-category="chewy">??潭?憭頂 ??</button>
+        <button class="filter-btn" data-category="milk">蝬憟嗉/?輸 ??</button>
+        <button class="filter-btn" data-category="tea">蝝??蝟???</button>
+        <button class="filter-btn" data-category="fruit">???貊?蝟???</button>
+      </div>
+
+      <!-- Drinks Grid -->
+      <div class="drinks-grid" id="drinksContainer">
+        <!-- Javascript will render or already inline rendered drinks below -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Lucky Picker (Solve choice overload & boost orders) -->
+  <section class="lucky-section" id="lucky">
+    <div class="container">
+      <div class="lucky-card">
+        <div class="lucky-info">
+          <span class="section-tag">DECISION MAKER</span>
+          <h3>隞予??暻潘??雿??賢?憌脫?嚗?/h3>
+          <p>
+            蝡?瑹狗?蜇?舐鞊思?瘙綽?暺?摮??瘜ａ憟嗉嚗? 60撋??賡?頧撟思?銝蝘捱摰?暺?隞予?末敹?嚗?
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-primary" id="spinBtn">
+              ? 撟急??冽??賭??荔?
+            </button>
+            <button class="btn btn-outline" onclick="quickAddCurrentLucky()">
+              ???湔暺?
+            </button>
+          </div>
+        </div>
+
+        <div class="lucky-display" id="luckyDisplay">
+          <div class="lucky-emoji" id="luckyEmoji">??</div>
+          <div class="lucky-drink-name" id="luckyName">?迤?郭璊堆?1?隤選?</div>
+          <div class="lucky-drink-desc" id="luckyDesc">擃控?迤? 嚗?瘜ａ 嚗?璊唳?嚗???潮銝鳴?</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customization Guide -->
+  <section class="customize-guide-section" id="customization">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">CUSTOMIZE YOUR CUP</span>
+        <h2 class="section-title">摰Ｚˊ????蝢?靘?/h2>
+        <p class="section-desc">?漲?憛?撖??敹矽??皛輯雲??憌脫???銝????橘?</p>
+      </div>
+
+      <div class="guide-grid">
+        <div class="guide-box">
+          <h4>?? ?啣??豢? (Ice Level)</h4>
+          <ul>
+            <li>甇?虜??(Regular) <span class="sub">?瘨?瘝飲</span></li>
+            <li>撠 (Less Ice) <span class="sub">?刻嚗???靘?/span></li>
+            <li>敺桀 (Low Ice) <span class="sub">?嗅?瞈?</span></li>
+            <li>?餃 (No Ice) <span class="sub">?∪?蝣?湧???/span></li>
+            <li>皞怎憌?(Warm/Hot) <span class="sub">?砍予????</span></li>
+          </ul>
+        </div>
+
+        <div class="guide-box">
+          <h4>? ?漲隤踵 (Sweetness)</h4>
+          <ul>
+            <li>甇?虜??(100%) <span class="sub">?鈭箸???/span></li>
+            <li>撠? (70%) <span class="sub">?葆擐除?啣憟質?</span></li>
+            <li>?? (50%) <span class="sub">???箄擐???/span></li>
+            <li>敺桃? (30%) <span class="sub">摨?刻???嚗?/span></li>
+            <li>?∠? (0%) <span class="sub">皜?嗥蔽?⊥?</span></li>
+          </ul>
+        </div>
+
+        <div class="guide-box">
+          <h4>??鞊芾??? (Toppings)</h4>
+          <ul>
+            <li>憭扳郭??(Boba) <span class="sub">+10???Ｙ?憔Q敶?/span></li>
+            <li>?嗥璊唳? (Coconut Jelly) <span class="sub">+10???貊??憭?</span></li>
+            <li>擗??漸 (Oat) <span class="sub">+10??憿?憌賣遛頞ˊ頞?/span></li>
+            <li>?極撣? (Pudding) <span class="sub">+15??皛?瞈?憟園?</span></li>
+            <li>??瘛瑟 (Combo) <span class="sub">+15???????銝甈∩澈??/span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promotions / Value Deals Section -->
+  <section class="promo-section" id="promos">
+    <div class="container">
+      <div class="section-head" style="color: #FFF;">
+        <span class="section-tag" style="background: rgba(255,255,255,0.15); color: var(--primary-yellow); border-color: rgba(255,255,255,0.2);">SUPER VALUE</span>
+        <h2 class="section-title" style="color: #FFF;">閬芣???餌?餉眺頞???憭?/h2>
+        <p class="section-desc" style="color: #CBD5E1;">???策??憌脫??之摰嗆?雿???潘?憭拙予鈭怠?憭批?ㄡ?翰璅?</p>
+      </div>
+
+      <div class="promo-grid">
+        <div class="promo-card">
+          <div class="promo-ribbon">憭拙予鈭?/div>
+          <div class="promo-icon">??</div>
+          <h3>?雿眺 5 ??1??/h3>
+          <p>銝恣?航齒?砍恕???頃?冗?蟡?皛?5 ?舐?亙?鞎餉???1 ?荔?撟喳?銝?臭???40 ??</p>
+          <button class="btn btn-primary btn-sm" onclick="showToast('撌脤??眺5???芣?嚗?撣唾????)">蝡雿輻</button>
+        </div>
+
+        <div class="promo-card">
+          <div class="promo-ribbon">摮貊???</div>
+          <div class="promo-icon">??</div>
+          <h3>?箇內摮貊?霅??5 ??/h3>
+          <p>?曉飛鋆????荔???啣之撠?∟?擃葉?瑟??飛??嚗?銝?臬鈭怎????5 ??</p>
+          <button class="btn btn-primary btn-sm" onclick="showToast('撌脩Ⅱ隤飛??撅砍??')">?亦?閰單?</button>
+        </div>
+
+        <div class="promo-card">
+          <div class="promo-ribbon">??鞎?/div>
+          <div class="promo-icon">?</div>
+          <h3>?券?皛?300 ???祥</h3>
+          <p>憭??冽??啣嗾??嚗?? 3 ?祇??批閬遛 300 ???喳?鞎駁摨??暸??暹?敹恍??</p>
+          <button class="btn btn-primary btn-sm" onclick="showToast('敹恍???蝝閰梧?02-8888-6666')">銝?萄???/button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">TESTIMONIALS</span>
+        <h2 class="section-title">??憌脫?憭批振??撖血末閰?/h2>
+        <p class="section-desc">摮貊????剜???憟嗉蕙銝?湔?佗?撟喳?餌?銝戎??憟賢??/p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">??????/div>
+          <p class="review-text">?澈?箇狙摮貊?瘥予銝??賭?摰?????60撋?瘜ａ憟嗉??憭芯?敹?嚗之?臬閬?0????頠摨血?憟踝?摰撠望??蝎曄?蝟折?嚗?/p>
+          <div class="review-author">
+            <div class="author-avatar">????/div>
+            <div class="author-info">
+              <h5>??摮?/h5>
+              <span>憭批飛??漲???末??/span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">??????/div>
+          <p class="review-text">?齒?砍恕銝??嗅銝??60撋?鞎瑚???頞?蝞????迤?郭璊唳?皛踹?嚗?唬?撌湧??喃??游?嚗P?潛鈭箄?蛛???/p>
+          <div class="review-author">
+            <div class="author-avatar">?</div>
+            <div class="author-info">
+              <h5>?喳???/h5>
+              <span>蝘?璆凋??剜??颱??蝳?</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">??????/div>
+          <p class="review-text">???嗆?菜?蝟凝?堆??嗅頝悅憟嗉?????憟踝?撟喳虜?典摰嗉眺銝?臬?頛?5??60撋閬?5???釭?憟踝????刻嚗?/p>
+          <div class="review-author">
+            <div class="author-avatar">??/div>
+            <div class="author-info">
+              <h5>??憪?/h5>
+              <span>擙桀扒?嗥??梯?/span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery CTA Banner -->
+  <section class="delivery-cta">
+    <div class="container">
+      <h2>?喳?銝蝑?蝡憭?蝺??芸?</h2>
+      <p>?∟???憭?閬?瘨潮?皞恬??撖?唾?皞急??梢ㄡ嚗??閰望?蝺?暺嚗??唾憌脰??雿?銝?</p>
+      <div class="delivery-phone-box">
+        <span>?? 憭?蝺?(02) 8888-6666</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="logo" style="color: #FFF; margin-bottom: 16px;">
+            <div class="logo-badge">?奶</div>
+            <div class="logo-text">
+              60<span style="color: var(--primary-yellow);">撋?/span>
+            </div>
+          </div>
+          <p>
+            撠???ㄡ??憭批振????????嚗誑?寞閬芣???鞈芣擙柴遛?臬末??擃???霈?瘥予?質頛??末?塚?
+          </p>
+          <p style="color: var(--primary-yellow); font-weight: 700;">
+            ?像?孵之?荔?瘥????舀遛頞喉???
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>敹恍?閬?/h4>
+          <ul class="footer-links">
+            <li><a href="#home">擐?蝎暸</a></li>
+            <li><a href="#menu">鈭箸除?</a></li>
+            <li><a href="#lucky">撟賊??賡ㄡ??/a></li>
+            <li><a href="#customization">摰Ｚˊ?漲?啣?</a></li>
+            <li><a href="#promos">??芣?撠?</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>蝬鈭箸除?刻</h4>
+          <ul class="footer-links">
+            <li><a href="#menu">??瘜ａ憟嗉 ($50)</a></li>
+            <li><a href="#menu">?迤?郭璊?($45)</a></li>
+            <li><a href="#menu">擃控?迤??($35)</a></li>
+            <li><a href="#menu">?寧?蝝?輸 ($55)</a></li>
+            <li><a href="#menu">擙格疙瑼祉???($45)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>?撣?璆剛?閮?/h4>
+          <p>?平??嚗曹??喲望 10:00 - 22:30</p>
+          <p>?撣蜇?剁??啣?撣ㄡ?之??60 ??/p>
+          <p>摰Ｘ?靽∠拳嚗ervice@60lan-tea.com.tw</p>
+          <p>雿平鞈?嚗飛??11515136嚗雯????outline.md 撖虫?嚗?/p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>穢 2026 60撋?憌脣?撠都摨?(60LAN Bubble Tea). All Rights Reserved.</div>
+        <div style="color: var(--primary-yellow);">閬靘?嚗ebSpec_11515136/specs/outline.md</div>
+      </div>
+    </div>
   </footer>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Modal: Customization & Add to Cart -->
+  <div class="modal-overlay" id="orderModal">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" id="modalDrinkTitle">憌脣?摰Ｚˊ?身摰?/div>
+        <div class="modal-close" id="modalCloseBtn">&times;</div>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; align-items: center; gap: 14px; background: var(--bg-warm-light); padding: 12px; border-radius: 12px; margin-bottom: 16px;">
+          <div style="font-size: 36px;" id="modalDrinkIcon">??</div>
+          <div>
+            <h4 style="font-size: 17px; font-weight: 900; color: var(--accent-deep);" id="modalDrinkName">瘜ａ憟嗉</h4>
+            <div style="color: var(--tea-amber); font-weight: 800;" id="modalDrinkBasePrice">?桀 NT$ 50</div>
+          </div>
+        </div>
+
+        <!-- Size -->
+        <div class="modal-section-title">?? ?臬?憭批?</div>
+        <div class="modal-options-grid" id="sizeOptions">
+          <button class="option-btn" data-value="憭扳 (L)" data-add="10">憭扳 L (+10)</button>
+          <button class="option-btn active" data-value="銝剜 (M)" data-add="0">銝剜 M (+0)</button>
+        </div>
+
+        <!-- Sweetness -->
+        <div class="modal-section-title">? ?漲?豢?</div>
+        <div class="modal-options-grid" id="sugarOptions">
+          <button class="option-btn" data-value="甇?虜??(100%)">甇?虜??/button>
+          <button class="option-btn" data-value="撠? (70%)">撠?</button>
+          <button class="option-btn" data-value="?? (50%)">??</button>
+          <button class="option-btn active" data-value="敺桃? (30%)">敺桃? (??</button>
+          <button class="option-btn" data-value="?∠? (0%)">?∠?</button>
+        </div>
+
+        <!-- Ice -->
+        <div class="modal-section-title">?? ?啣?隤踵</div>
+        <div class="modal-options-grid" id="iceOptions">
+          <button class="option-btn" data-value="甇?虜??>甇?虜??/button>
+          <button class="option-btn active" data-value="撠">撠 (??</button>
+          <button class="option-btn" data-value="敺桀">敺桀</button>
+          <button class="option-btn" data-value="?餃">?餃</button>
+          <button class="option-btn" data-value="皞怎">皞怎</button>
+        </div>
+
+        <!-- Toppings -->
+        <div class="modal-section-title">?????賊? (?航???</div>
+        <div class="modal-options-grid" id="toppingOptions">
+          <button class="option-btn" data-value="瘜ａ" data-add="10">+ 瘜ａ (+10)</button>
+          <button class="option-btn" data-value="璊唳?" data-add="10">+ 璊唳? (+10)</button>
+          <button class="option-btn" data-value="?漸" data-add="10">+ ?漸 (+10)</button>
+          <button class="option-btn" data-value="撣?" data-add="15">+ 撣? (+15)</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>
+          <span style="font-size: 13px; color: var(--text-muted);">閮?撠?嚗?/span>
+          <span style="font-size: 22px; font-weight: 900; color: var(--tea-brown);" id="modalTotalPreview">NT$ 50</span>
+        </div>
+        <button class="btn btn-primary" id="confirmAddToCartBtn">
+          ?? ?鞈潛頠?
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="鞈潛頠???>
+    <div class="cart-drawer-head">
+      <h3 style="font-size: 18px; font-weight: 900; color: var(--accent-deep);">?奶 ?函?憌脫?皜</h3>
+      <button style="font-size: 24px; color: var(--text-muted);" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-drawer-items" id="cartItemList">
+      <div style="text-align: center; color: var(--text-muted); margin-top: 60px;">
+        <div style="font-size: 48px; margin-bottom: 12px;">?奶</div>
+        <p>鞈潛頠?蝛箇???</p>
+        <p style="font-size: 13px;">頞翰?嗾?臬末??憌脫??改?</p>
+      </div>
+    </div>
+    <div class="cart-drawer-foot">
+      <div class="cart-total-row">
+        <span>蝮質???</span>
+        <span id="cartTotalPrice" style="color: var(--tea-brown);">NT$ 0</span>
+      </div>
+      <button class="btn btn-primary" style="width: 100%;" id="checkoutBtn">
+        ?? 蝡蝯董?閮
+      </button>
+    </div>
+  </aside>
+
+  <!-- Floating Toast -->
+  <div class="toast" id="toastBox">
+    <span>??/span>
+    <span id="toastMsg">???鞈潛頠?</span>
+  </div>
 
   <script>
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const toast = document.querySelector('#toast');
-    let toastTimer;
+    // Drinks Data representing affordable, attractive offerings according to outline.md
+    const drinksData = [
+      {
+        id: 1,
+        name: "蝬瘜ａ憟嗉",
+        category: "chewy",
+        price: 50,
+        desc: "?曄擐??怨蝝嚗??怎?娘敶之瘜ａ嚗???暺?",
+        icon: "??",
+        calories: "380 kcal",
+        badge: "?梢 TOP 1",
+        tag: "??擐"
+      },
+      {
+        id: 2,
+        name: "?迤?郭璊?(1?隤?",
+        category: "chewy",
+        price: 45,
+        desc: "?迤???瘜ａ??拇什????皛踵嚗??潭???",
+        icon: "?奶",
+        calories: "310 kcal",
+        badge: "頞犖瘞?,
+        tag: "憭扳遛鞎?
+      },
+      {
+        id: 3,
+        name: "暺?擃控?迤??,
+        category: "tea",
+        price: 35,
+        desc: "?湧?啁擃控??嚗皝舫?暺漁嚗??????行?嚗?,
+        icon: "??",
+        calories: "0 kcal (?∠?)",
+        badge: "閫?葩擐",
+        tag: "?35??
+      },
+      {
+        id: 4,
+        name: "擙格疙瑼祉???,
+        category: "fruit",
+        price: 45,
+        desc: "?湧?撅擙格瑼豢狀?暹成嚗?像銵∴?憭??唳飲閫?嚗?,
+        icon: "??",
+        calories: "160 kcal",
+        badge: "瘨?敹?",
+        tag: "蝝悅?成"
+      },
+      {
+        id: 5,
+        name: "?寧?蝝?輸",
+        category: "milk",
+        price: 55,
+        desc: "?芾釭?典撠噙擙桐像??賊?拙?蝝摰?鈭方?嚗?憟嗆???",
+        icon: "??",
+        calories: "230 kcal",
+        badge: "蝝悅憟?,
+        tag: "擐???"
+      },
+      {
+        id: 6,
+        name: "蝬?唳?瘛???,
+        category: "milk",
+        price: 50,
+        desc: "?游之???瘛????券????嗡葉嚗??撓撅斤?蝢??喉?",
+        icon: "?",
+        calories: "290 kcal",
+        badge: "蝡亙僑?",
+        tag: "瞈??唳飲"
+      },
+      {
+        id: 7,
+        name: "擗??漸???輸",
+        category: "milk",
+        price: 55,
+        desc: "?剖???園???擃??漸蝎?擙桀扒嚗摨瑞??喳??ˊ頞單?嚗?,
+        icon: "?",
+        calories: "270 kcal",
+        badge: "?亙熒憌質雲",
+        tag: "隞???刻"
+      },
+      {
+        id: 8,
+        name: "??瑼豢狀??,
+        category: "fruit",
+        price: 45,
+        desc: "?圈悅??????樴?????揖甇Ｘ葩嚗膜?遛??",
+        icon: "??",
+        calories: "190 kcal",
+        badge: "瞏文?憟賢?",
+        tag: "憭拍??"
+      },
+      {
+        id: 9,
+        name: "????蝝",
+        category: "tea",
+        price: 35,
+        desc: "撣嗆?憭拍??擐除?鞈芾?????嚗??踹鈭怠?蝎曉?嚗?,
+        icon: "??,
+        calories: "0 kcal (?∠?)",
+        badge: "憭拍??",
+        tag: "?35??
+      }
+    ];
 
-    function closeMenu() {
-      navLinks.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-      menuToggle.setAttribute('aria-label', '開啟導覽選單');
-      menuToggle.textContent = '☰';
+    // State
+    let cart = [];
+    let currentDrinkForModal = null;
+    let selectedSize = { name: "銝剜 (M)", add: 0 };
+    let selectedSugar = "敺桃? (30%)";
+    let selectedIce = "撠";
+    let selectedToppings = [];
+
+    // DOM Elements
+    const drinksContainer = document.getElementById("drinksContainer");
+    const cartCountEl = document.getElementById("cartCount");
+    const openCartBtn = document.getElementById("openCartBtn");
+    const closeCartBtn = document.getElementById("closeCartBtn");
+    const cartDrawer = document.getElementById("cartDrawer");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const cartItemList = document.getElementById("cartItemList");
+    const cartTotalPrice = document.getElementById("cartTotalPrice");
+    const checkoutBtn = document.getElementById("checkoutBtn");
+
+    // Modal Elements
+    const orderModal = document.getElementById("orderModal");
+    const modalCloseBtn = document.getElementById("modalCloseBtn");
+    const modalDrinkName = document.getElementById("modalDrinkName");
+    const modalDrinkIcon = document.getElementById("modalDrinkIcon");
+    const modalDrinkBasePrice = document.getElementById("modalDrinkBasePrice");
+    const modalTotalPreview = document.getElementById("modalTotalPreview");
+    const confirmAddToCartBtn = document.getElementById("confirmAddToCartBtn");
+
+    // Render Drinks
+    function renderDrinks(category = "all") {
+      drinksContainer.innerHTML = "";
+      const filtered = category === "all" ? drinksData : drinksData.filter(d => d.category === category);
+      
+      filtered.forEach(drink => {
+        const card = document.createElement("div");
+        card.className = "drink-card";
+        card.innerHTML = `
+          <div class="drink-card-top">
+            <span class="drink-card-tag">${drink.tag}</span>
+            <span class="drink-card-badge-right">${drink.badge}</span>
+            <div class="drink-card-icon">${drink.icon}</div>
+          </div>
+          <div class="drink-card-body">
+            <h3 class="drink-card-name">${drink.name}</h3>
+            <p class="drink-card-desc">${drink.desc}</p>
+            <div class="drink-card-meta">
+              <span class="drink-calories">${drink.calories}</span>
+              <div class="drink-price-box">
+                <span class="drink-card-currency">NT$</span>
+                <span class="drink-card-price">${drink.price}</span>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openCustomModal(${drink.id})">
+              ??摰Ｚˊ??擗?
+            </button>
+          </div>
+        `;
+        drinksContainer.appendChild(card);
+      });
     }
 
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', String(isOpen));
-      menuToggle.setAttribute('aria-label', isOpen ? '關閉導覽選單' : '開啟導覽選單');
-      menuToggle.textContent = isOpen ? '×' : '☰';
+    // Filter Buttons
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderDrinks(btn.dataset.category);
+      });
     });
 
-    navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    // Open Customization Modal
+    function openCustomModal(drinkId) {
+      const drink = drinksData.find(d => d.id === drinkId);
+      if (!drink) return;
+      currentDrinkForModal = drink;
 
-    function showToast(message) {
-      window.clearTimeout(toastTimer);
-      toast.textContent = message;
-      toast.classList.add('show');
-      toastTimer = window.setTimeout(() => toast.classList.remove('show'), 2600);
-    }
+      modalDrinkName.textContent = drink.name;
+      modalDrinkIcon.textContent = drink.icon;
+      modalDrinkBasePrice.textContent = `?桀 NT$ ${drink.price}`;
+      
+      // Reset selections
+      selectedSize = { name: "銝剜 (M)", add: 0 };
+      selectedSugar = "敺桃? (30%)";
+      selectedIce = "撠";
+      selectedToppings = [];
 
-    document.querySelectorAll('[data-coffee]').forEach(button => {
-      button.addEventListener('click', () => showToast(`已將「${button.dataset.coffee}」加入你的收藏。`));
-    });
+      // Reset UI states
+      setupOptionGroup("sizeOptions", (val, add) => {
+        selectedSize = { name: val, add: parseInt(add || 0) };
+        updateModalPrice();
+      });
+      setupOptionGroup("sugarOptions", (val) => {
+        selectedSugar = val;
+      });
+      setupOptionGroup("iceOptions", (val) => {
+        selectedIce = val;
+      });
 
-    document.querySelector('#subscribeForm').addEventListener('submit', event => {
-      event.preventDefault();
-      const form = event.currentTarget;
-      if (!form.checkValidity()) return;
-      form.reset();
-      showToast('謝謝訂閱，下一封晴朗的風味通信即將寄出。');
-    });
-
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealItems = document.querySelectorAll('.reveal');
-    if (reduceMotion || !('IntersectionObserver' in window)) {
-      revealItems.forEach(item => item.classList.add('visible'));
-    } else {
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
+      // Topping options (toggleable)
+      document.querySelectorAll("#toppingOptions .option-btn").forEach(btn => {
+        btn.classList.remove("active");
+        btn.onclick = () => {
+          btn.classList.toggle("active");
+          const toppingName = btn.dataset.value;
+          const cost = parseInt(btn.dataset.add);
+          if (btn.classList.contains("active")) {
+            selectedToppings.push({ name: toppingName, cost: cost });
+          } else {
+            selectedToppings = selectedToppings.filter(t => t.name !== toppingName);
           }
-        });
-      }, { threshold: .12 });
-      revealItems.forEach(item => observer.observe(item));
+          updateModalPrice();
+        };
+      });
+
+      updateModalPrice();
+      orderModal.classList.add("active");
     }
+
+    function setupOptionGroup(containerId, onSelect) {
+      const buttons = document.querySelectorAll(`#${containerId} .option-btn`);
+      buttons.forEach(btn => {
+        btn.onclick = () => {
+          buttons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          onSelect(btn.dataset.value, btn.dataset.add);
+        };
+      });
+    }
+
+    function updateModalPrice() {
+      if (!currentDrinkForModal) return;
+      const base = currentDrinkForModal.price;
+      const sizeAdd = selectedSize.add;
+      const toppingsAdd = selectedToppings.reduce((sum, t) => sum + t.cost, 0);
+      const total = base + sizeAdd + toppingsAdd;
+      modalTotalPreview.textContent = `NT$ ${total}`;
+    }
+
+    // Modal Close
+    modalCloseBtn.onclick = () => orderModal.classList.remove("active");
+    orderModal.onclick = (e) => {
+      if (e.target === orderModal) orderModal.classList.remove("active");
+    };
+
+    // Confirm Add to Cart
+    confirmAddToCartBtn.onclick = () => {
+      if (!currentDrinkForModal) return;
+      const base = currentDrinkForModal.price;
+      const sizeAdd = selectedSize.add;
+      const toppingsAdd = selectedToppings.reduce((sum, t) => sum + t.cost, 0);
+      const total = base + sizeAdd + toppingsAdd;
+      
+      const item = {
+        id: Date.now(),
+        drinkId: currentDrinkForModal.id,
+        name: currentDrinkForModal.name,
+        size: selectedSize.name,
+        sugar: selectedSugar,
+        ice: selectedIce,
+        toppings: selectedToppings.map(t => t.name).join("+") || "??,
+        price: total
+      };
+
+      cart.push(item);
+      updateCartUI();
+      orderModal.classList.remove("active");
+      showToast(`撌脫????乓?{currentDrinkForModal.name}??`);
+    };
+
+    // Quick Add directly from hero or randomizer
+    function quickAdd(name, price, icon) {
+      const item = {
+        id: Date.now(),
+        name: name,
+        size: "憭扳 (L)",
+        sugar: "敺桃? (30%)",
+        ice: "撠",
+        toppings: "瘜ａ",
+        price: price
+      };
+      cart.push(item);
+      updateCartUI();
+      showToast(`撌脩???乓?{name}??`);
+    }
+
+    // Update Cart UI
+    function updateCartUI() {
+      cartCountEl.textContent = cart.length;
+      if (cart.length === 0) {
+        cartItemList.innerHTML = `
+          <div style="text-align: center; color: var(--text-muted); margin-top: 60px;">
+            <div style="font-size: 48px; margin-bottom: 12px;">?奶</div>
+            <p>鞈潛頠?蝛箇???</p>
+            <p style="font-size: 13px;">頞翰?嗾?臬末??憌脫??改?</p>
+          </div>
+        `;
+        cartTotalPrice.textContent = "NT$ 0";
+        return;
+      }
+
+      let total = 0;
+      cartItemList.innerHTML = "";
+      cart.forEach((item, index) => {
+        total += item.price;
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `
+          <div>
+            <div class="cart-item-title">${item.name} <small style="font-size: 12px; color: var(--tea-amber);">(${item.size})</small></div>
+            <div class="cart-item-specs">${item.sugar} / ${item.ice} / ?? ${item.toppings}</div>
+          </div>
+          <div style="display: flex; align-items: center;">
+            <div class="cart-item-price">NT$ ${item.price}</div>
+            <span class="cart-item-remove" onclick="removeCartItem(${index})" title="?芷">??/span>
+          </div>
+        `;
+        cartItemList.appendChild(row);
+      });
+      cartTotalPrice.textContent = `NT$ ${total}`;
+    }
+
+    function removeCartItem(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+      showToast("撌脣?鞈潛頠宏?歹?");
+    }
+
+    // Drawer Controls
+    openCartBtn.onclick = () => {
+      cartDrawer.classList.add("active");
+      cartOverlay.classList.add("active");
+    };
+    function closeCart() {
+      cartDrawer.classList.remove("active");
+      cartOverlay.classList.remove("active");
+    }
+    closeCartBtn.onclick = closeCart;
+    cartOverlay.onclick = closeCart;
+
+    // Checkout Simulation
+    checkoutBtn.onclick = () => {
+      if (cart.length === 0) {
+        showToast("鞈潛頠征蝛箇?嚗????賊ㄡ??嚗?);
+        return;
+      }
+      const totalAmount = cart.reduce((sum, item) => sum + item.price, 0);
+      alert(`?? ???函?閮頃嚗n\n撌脫???嗆?ㄡ???殷???${cart.length} ?荔?蝮賡?憿?NT$ ${totalAmount}嚗n60撋??撣丰隡湔迤?函?憌莎?憭?喳?憌???嚗);
+      cart = [];
+      updateCartUI();
+      closeCart();
+    };
+
+    // Lucky Drink Wheel / Randomizer
+    const luckyList = [
+      { name: "?迤?郭璊堆?1?隤選?", emoji: "??", desc: "擃控?迤? 嚗?瘜ａ 嚗?璊唳?嚗???潮銝鳴?", price: 45 },
+      { name: "蝬瘜ａ憟嗉", emoji: "?奶", desc: "擐??怨蝝憟園?摨?Q敶之瘜ａ嚗?銝???撟貊?嚗?, price: 50 },
+      { name: "暺?擃控?迤??, emoji: "??", desc: "瘨?擐嚗?擐????喟蝒殷??芾??35??", price: 35 },
+      { name: "擙格疙瑼祉???, emoji: "??", desc: "?暹成撅瑼豢狀敺桅敺桃?嚗瘝寡圾?拍洵銝??", price: 45 },
+      { name: "?寧?蝝?輸", emoji: "??", desc: "擐??典擙桀扒?剝???蝝嚗?銝???舀???嚗?, price: 55 },
+      { name: "?唳?瘛???, emoji: "?", desc: "?渡?擐??唳?瘛?Ｚ???園?銝哨???頞???", price: 50 }
+    ];
+
+    let currentLuckyItem = luckyList[0];
+    const spinBtn = document.getElementById("spinBtn");
+    const luckyEmoji = document.getElementById("luckyEmoji");
+    const luckyName = document.getElementById("luckyName");
+    const luckyDesc = document.getElementById("luckyDesc");
+
+    spinBtn.onclick = () => {
+      spinBtn.disabled = true;
+      let count = 0;
+      const interval = setInterval(() => {
+        const rand = luckyList[Math.floor(Math.random() * luckyList.length)];
+        luckyEmoji.textContent = rand.emoji;
+        luckyName.textContent = rand.name;
+        luckyDesc.textContent = rand.desc;
+        luckyEmoji.style.transform = `scale(${1 + Math.random() * 0.3}) rotate(${Math.random() * 20 - 10}deg)`;
+        count++;
+        if (count > 12) {
+          clearInterval(interval);
+          currentLuckyItem = luckyList[Math.floor(Math.random() * luckyList.length)];
+          luckyEmoji.textContent = currentLuckyItem.emoji;
+          luckyName.textContent = currentLuckyItem.name;
+          luckyDesc.textContent = currentLuckyItem.desc;
+          luckyEmoji.style.transform = "scale(1) rotate(0deg)";
+          spinBtn.disabled = false;
+          showToast(`? 隞撟賊??刻嚗?{currentLuckyItem.name}嚗);
+        }
+      }, 100);
+    };
+
+    function quickAddCurrentLucky() {
+      quickAdd(currentLuckyItem.name, currentLuckyItem.price, currentLuckyItem.emoji);
+    }
+
+    // Toast Notification helper
+    const toastBox = document.getElementById("toastBox");
+    const toastMsg = document.getElementById("toastMsg");
+    let toastTimeout;
+    function showToast(msg) {
+      toastMsg.textContent = msg;
+      toastBox.classList.add("show");
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastBox.classList.remove("show");
+      }, 3000);
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+    mobileMenuBtn.onclick = () => {
+      const navLinks = document.querySelector(".nav-links");
+      if (navLinks.style.display === "flex") {
+        navLinks.style.display = "none";
+      } else {
+        navLinks.style.display = "flex";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "72px";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.background = "#FFF";
+        navLinks.style.padding = "20px";
+        navLinks.style.boxShadow = "0 8px 20px rgba(0,0,0,0.1)";
+        navLinks.style.zIndex = "99";
+      }
+    };
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      const header = document.getElementById("navbar");
+      if (window.scrollY > 30) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+
+    // Initial Render
+    renderDrinks("all");
   </script>
 </body>
 </html>
+
